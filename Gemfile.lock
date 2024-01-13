@@ -1,0 +1,14 @@
+GEM
+  specs:
+    filewatcher (2.1.0)
+      module_methods (~> 0.1.0)
+    module_methods (0.1.0)
+
+PLATFORMS
+  arm64-darwin-22
+
+DEPENDENCIES
+  filewatcher (~> 2.1)
+
+BUNDLED WITH
+   2.4.19
