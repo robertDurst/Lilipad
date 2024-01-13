@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lilipad (0.3.0)
+    lilipad (0.5.0)
       filewatcher (~> 2.1)
 
 GEM

@@ -4,7 +4,7 @@ require "filewatcher"
 
 module Lilipad
   module Logger
-    LOGG = {}.freeze
+    LOGG = {}
 
     filewatcher = Filewatcher.new(["./lilipad_config.json"])
 
