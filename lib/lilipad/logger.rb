@@ -10,18 +10,24 @@ module Lilipad
 
     Thread.new(filewatcher) do |fw|
       fw.watch do |_changes|
-        json = JSON.parse(File.read("./lilipad_config.json"))
+        puts "[Lilipad DEBUG] Reloading config file..."
+        
+        begin
+          json = JSON.parse(File.read("./lilipad_config.json"))
 
-        if json["enable"]
-          enable_trace
-        else
-          disable_trace
-        end
+          if json["enable"]
+            enable_trace
+          else
+            disable_trace
+          end
 
-        reset
+          reset
 
-        json["log"].each do |log|
-          append_logg(log["file"], log["lineno"], log["msg"])
+          json["log"].each do |log|
+            append_logg(log["file"], log["lineno"], log["msg"])
+          end
+        rescue => e
+          puts "[Lilipad DEBUG] Error reloading config file: #{e}"
         end
       end
     end
